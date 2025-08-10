@@ -8,6 +8,7 @@ import FaqSection from "@/components/FaqSection";
 import TestimonialSection from "@/components/TestimonialSection";
 import ContactSection from "@/components/ContactSection";
 import FooterSection from "@/components/FooterSection";
+import HeroSection from "@/components/HeroSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,8 @@ export default function Home() {
   return (
   <>
     <main className="">
-      <HomePage/>
+      {/* <HomePage/> */}
+      <HeroSection/>
       <ProcessSection/>
       <WhyChooseSection/>
       <StackPowersSection/>
