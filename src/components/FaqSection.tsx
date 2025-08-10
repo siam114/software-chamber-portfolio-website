@@ -34,11 +34,15 @@ const FaqSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
-          <div 
-            className="inline-block text-white px-4 py-2 rounded-full text-sm font-semibold uppercase tracking-wider mb-6"
-            style={{ background: 'linear-gradient(135deg, #00D4AA 0%, #0EA5E9 100%)' }}
+         <div 
+            className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white mb-8"
+            style={{ backgroundColor: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)' }}
           >
-            FAQ
+            <div 
+              className="w-2 h-2 rounded-full mr-2"
+              style={{ backgroundColor: '#22c55e' }}
+            ></div>
+           FAQ
           </div>
           <h1 className="text-5xl font-bold text-white mb-4 leading-tight">
             Comprehensive Answers to the Most<br />
