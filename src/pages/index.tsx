@@ -2,6 +2,8 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import ProcessSection from "@/components/ProcessSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
+import StackPowersSection from "@/components/StackPowersSection";
+import HomePage from "@/components/HomePage";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +19,10 @@ export default function Home() {
   return (
   <>
     <main className="">
+      {/* <HomePage/> */}
       <ProcessSection/>
       <WhyChooseSection/>
+      <StackPowersSection/>
     </main>
    </>
   );
