@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code, Globe, Database, Shield, Smartphone, Users, ArrowRight } from 'lucide-react';
+import { Code, Globe, Database, Shield, Smartphone, Users, ArrowRight, Layers, Zap, Settings } from 'lucide-react';
 
 // Animation hook for intersection observer
 const useInView = (threshold = 0.4) => {
@@ -27,73 +27,120 @@ const useInView = (threshold = 0.4) => {
 };
 
 const ServicesSection = () => {
-  // Intersection observer hook
-  const servicesSection = useInView(0.3);
+  const servicesSection = useInView(0.2);
 
   const services = [
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Web & Mobile App Development",
-      description: "Custom web and mobile applications built with modern technologies and best practices."
-    },
-    {
       icon: <Globe className="w-8 h-8" />,
-      title: "Cloud Solutions",
-      description: "Scalable cloud infrastructure and deployment solutions for your growing business."
+      title: "Web & Mobile App Development",
+      description: "Software Chamber specializes in creating powerful, scalable, and secure e-commerce solutions.",
+      featured: false
     },
     {
-      icon: <Database className="w-8 h-8" />,
-      title: "Database Design",
-      description: "Robust database architecture and optimization for optimal performance."
+      icon: <Layers className="w-12 h-12" />,
+      title: "Application Software Services", 
+      description: "Software Chamber specializes in creating powerful, scalable, and secure e-commerce solutions.",
+      featured: true
     },
     {
-      icon: <Shield className="w-8 h-8" />,
-      title: "Cybersecurity",
-      description: "Comprehensive security solutions to protect your digital assets."
-    },
-    {
-      icon: <Smartphone className="w-8 h-8" />,
-      title: "Mobile Development",
-      description: "Native and cross-platform mobile applications for iOS and Android."
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Team Augmentation",
-      description: "Skilled developers to extend your existing development team."
+      icon: <Zap className="w-8 h-8" />,
+      title: "Software Coding & Optimization",
+      description: "Software Chamber specializes in creating powerful, scalable, and secure e-commerce solutions.",
+      featured: false
     }
   ];
 
   return (
-    <section id="services" ref={servicesSection.ref} className="py-20 bg-gray-900">
+    <section id="services" ref={servicesSection.ref} className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className={`text-center mb-16 transition-all duration-450 ease-out ${servicesSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <h2 className="text-4xl font-bold mb-4 text-white">Services ✨</h2>
-          <p className="text-xl text-gray-400">Comprehensive solutions for your digital needs</p>
+        {/* Header */}
+        <div className={`flex justify-between items-center mb-16 transition-all duration-700 ease-out ${
+          servicesSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
+          <div>
+            <h2 className="text-5xl font-bold text-gray-900">
+              Services <span className="text-emerald-500">✨</span>
+            </h2>
+          </div>
+          <button className="flex items-center gap-2 text-gray-600 hover:text-emerald-500 transition-colors duration-300 group">
+            <span className="text-lg">All Services</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+          </button>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div
-              key={index}
-              className={`group p-6 bg-gray-800/50 border border-gray-700 rounded-2xl hover:bg-gray-800/70 transition-all duration-300 hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-cyan-500/10 ${
-                servicesSection.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-              style={{ 
-                transitionDelay: `${index * 100}ms`,
-                animationDelay: `${index * 100}ms`
-              }}
-            >
-              <div className="mb-4 text-cyan-400 group-hover:translate-y-[-6px] transition-transform duration-300">
-                {service.icon}
+        {/* Services Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 items-stretch">
+          {services.map((service, index) => {
+            const isFeatured = service.featured;
+            
+            return (
+              <div
+                key={index}
+                className={`group relative transition-all duration-700 ease-out ${
+                  servicesSection.inView 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-0 translate-y-12'
+                } ${
+                  isFeatured 
+                    ? 'lg:scale-105 lg:transform' 
+                    : 'hover:translate-y-[-4px]'
+                }`}
+                style={{
+                  transitionDelay: `${index * 150}ms`
+                }}
+              >
+                <div className={`
+                  relative h-full p-8 rounded-3xl border transition-all duration-300 
+                  ${isFeatured 
+                    ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white shadow-2xl shadow-emerald-500/25 border-emerald-400' 
+                    : 'bg-white border-gray-200 hover:shadow-xl hover:shadow-gray-200/50 hover:border-gray-300'
+                  }
+                `}>
+                  
+                  {/* Icon */}
+                  <div className={`mb-6 transition-transform duration-300 ${
+                    isFeatured 
+                      ? 'text-white' 
+                      : 'text-emerald-500 group-hover:scale-110'
+                  }`}>
+                    {service.icon}
+                  </div>
+
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <h3 className={`text-2xl font-bold leading-tight ${
+                      isFeatured ? 'text-white' : 'text-gray-900'
+                    }`}>
+                      {service.title}
+                    </h3>
+                    
+                    <p className={`text-base leading-relaxed ${
+                      isFeatured ? 'text-emerald-50' : 'text-gray-600'
+                    }`}>
+                      {service.description}
+                    </p>
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="mt-8">
+                    <button className={`
+                      flex items-center gap-3 p-4 rounded-2xl transition-all duration-300 group/btn
+                      ${isFeatured 
+                        ? 'bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm' 
+                        : 'bg-gray-50 hover:bg-emerald-50 text-gray-700 hover:text-emerald-600'
+                      }
+                    `}>
+                      <span className="text-lg font-medium">Learn More</span>
+                      <ArrowRight className={`
+                        w-5 h-5 transition-transform duration-300 group-hover/btn:translate-x-1
+                        ${isFeatured ? 'text-white' : 'text-emerald-500'}
+                      `} />
+                    </button>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
-              <p className="text-gray-400 mb-4">{service.description}</p>
-              <button className="flex items-center gap-2 text-cyan-400 hover:gap-4 transition-all duration-300">
-                Learn more
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-300" />
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
