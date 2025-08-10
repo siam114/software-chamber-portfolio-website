@@ -6,6 +6,7 @@ import StackPowersSection from "@/components/StackPowersSection";
 import HomePage from "@/components/HomePage";
 import FaqSection from "@/components/FaqSection";
 import TestimonialSection from "@/components/TestimonialSection";
+import ContactSection from "@/components/ContactSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function Home() {
       <StackPowersSection/>
       <FaqSection/>
       <TestimonialSection/>
+      <ContactSection/>
     </main>
    </>
   );
