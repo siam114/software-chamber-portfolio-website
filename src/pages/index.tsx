@@ -4,6 +4,7 @@ import ProcessSection from "@/components/ProcessSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
 import StackPowersSection from "@/components/StackPowersSection";
 import HomePage from "@/components/HomePage";
+import FaqSection from "@/components/FaqSection";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +20,11 @@ export default function Home() {
   return (
   <>
     <main className="">
-      {/* <HomePage/> */}
+      <HomePage/>
       <ProcessSection/>
       <WhyChooseSection/>
       <StackPowersSection/>
+      <FaqSection/>
     </main>
    </>
   );
