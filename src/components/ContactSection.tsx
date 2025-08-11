@@ -28,17 +28,17 @@ const ContactSection = () => {
 
   return (
     <div 
-      className="min-h-screen py-16 px-4"
-      style={{ backgroundColor: '#101828' }}
+      className="min-h-screen py-16 px-4 bg-white"
+      
     >
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+        <div className="text-center mb-10">
+          <h1 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
             Let's talk about your next<br />
             project. <span className="text-gray-400">We're here to help.</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-400 text-lg max-w-5xl mx-auto leading-relaxed">
             Deliver personalized experiences to your customers<br />
             with AI-powered recommendation engines and<br />
             dynamic content generators.
@@ -46,132 +46,104 @@ const ContactSection = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex flex-col lg:flex-row gap-16 items-start">
-          {/* Image Section */}
-          <div className="relative flex-1">
-            <div className="rounded-3xl overflow-hidden h-full">
-              <img 
-                src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&h=700&fit=crop"
-                alt="Professional workspace"
-                className="w-full h-96 lg:h-[600px] object-cover"
-              />
-            </div>
-            {/* Decorative blur elements */}
-            <div 
-              className="absolute -top-4 -right-4 w-32 h-32 rounded-full opacity-20 blur-2xl"
-              style={{ backgroundColor: '#00D4AA' }}
-            ></div>
-            <div 
-              className="absolute -bottom-8 -left-8 w-24 h-24 rounded-full opacity-15 blur-xl"
-              style={{ backgroundColor: '#0EA5E9' }}
-            ></div>
-          </div>
+       <div className="flex flex-col lg:flex-row gap-10 items-center bg-white rounded-3xl p-8 shadow-lg">
+  {/* Image */}
+  <div className="flex-1">
+    <img
+      src="/Rectangle 240648291.png"
+      alt="Profile"
+      className="w-full h-[600px] object-cover rounded-3xl"
+    />
+  </div>
 
-          {/* Form Section */}
-          <div className="bg-slate-800/50 backdrop-blur-sm rounded-3xl p-8 border border-slate-700 flex-1 h-fit">
-            <div className="space-y-6">
-              {/* First Name & Last Name */}
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <input
-                    type="text"
-                    name="firstName"
-                    placeholder="First Name"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="lastName"
-                    placeholder="Last Name"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                  />
-                </div>
-              </div>
+  {/* Form */}
+  <form
+    onSubmit={handleSubmit}
+    className="flex-1 bg-gray-50 rounded-3xl p-6 space-y-6 shadow-sm"
+  >
+    {/* First & Last Name */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <input
+        type="text"
+        name="firstName"
+        placeholder="First Name"
+        value={formData.firstName}
+        onChange={handleInputChange}
+        className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+      />
+      <input
+        type="text"
+        name="lastName"
+        placeholder="Last Name"
+        value={formData.lastName}
+        onChange={handleInputChange}
+        className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+      />
+    </div>
 
-              {/* Email */}
-              <div>
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                />
-              </div>
+    {/* Email */}
+    <input
+      type="email"
+      name="email"
+      placeholder="Email"
+      value={formData.email}
+      onChange={handleInputChange}
+      className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+    />
 
-              {/* Phone */}
-              <div className="grid grid-cols-3 gap-4">
-                <div>
-                  <select
-                    name="country"
-                    value={formData.country}
-                    onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-2 border-slate-600 text-white py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                  >
-                    <option value="+1" className="bg-slate-800">+1</option>
-                    <option value="+880" className="bg-slate-800">+880</option>
-                    <option value="+44" className="bg-slate-800">+44</option>
-                    <option value="+91" className="bg-slate-800">+91</option>
-                  </select>
-                </div>
-                <div className="col-span-2">
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                  />
-                </div>
-              </div>
+    {/* Phone */}
+    <div className="grid grid-cols-3 gap-4">
+      <select
+        name="country"
+        value={formData.country}
+        onChange={handleInputChange}
+        className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+      >
+        <option value="+1">+1</option>
+        <option value="+880">+880</option>
+        <option value="+44">+44</option>
+        <option value="+91">+91</option>
+      </select>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Phone"
+        value={formData.phone}
+        onChange={handleInputChange}
+        className="col-span-2 w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+      />
+    </div>
 
-              {/* Job Title */}
-              <div>
-                <input
-                  type="text"
-                  name="jobTitle"
-                  placeholder="Job Title"
-                  value={formData.jobTitle}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300"
-                />
-              </div>
+    {/* Job Title */}
+    <input
+      type="text"
+      name="jobTitle"
+      placeholder="Job Title"
+      value={formData.jobTitle}
+      onChange={handleInputChange}
+      className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+    />
 
-              {/* Message */}
-              <div>
-                <textarea
-                  name="message"
-                  placeholder="Your message"
-                  rows={4}
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  className="w-full bg-transparent border-b-2 border-slate-600 text-white placeholder-slate-400 py-3 px-0 focus:outline-none focus:border-cyan-400 transition-colors duration-300 resize-none"
-                ></textarea>
-              </div>
+    {/* Message */}
+    <textarea
+      name="message"
+      placeholder="Your message"
+      rows={4}
+      value={formData.message}
+      onChange={handleInputChange}
+      className="w-full border border-gray-200 rounded-lg p-4 focus:outline-none focus:ring-2 focus:ring-teal-400"
+    ></textarea>
 
-              {/* Submit Button */}
-              <div className="pt-6">
-                <button
-                  type="button"
-                  onClick={handleSubmit}
-                  className="inline-flex items-center px-8 py-3 rounded-full text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-cyan-400/25 hover:scale-105"
-                  style={{ background: 'linear-gradient(135deg, #00D4AA 0%, #0EA5E9 100%)' }}
-                >
-                  Submit
-                  <Send size={16} className="ml-2" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
+    {/* Submit */}
+    <button
+      type="submit"
+      className="w-full flex justify-center items-center gap-2 bg-teal-400 hover:bg-teal-500 text-white font-semibold rounded-full py-4 transition-all"
+    >
+      Submit <Send size={18} />
+    </button>
+  </form>
+</div>
+
       </div>
     </div>
   );
