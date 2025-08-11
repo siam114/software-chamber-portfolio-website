@@ -4,7 +4,7 @@ import { ExternalLink } from 'lucide-react';
 const FooterSection = () => {
   return (
     <footer 
-      className="py-16 px-4"
+      className="py-10 px-4"
       style={{ backgroundColor: '#0f172a' }}
     >
       <div className="max-w-7xl mx-auto">
@@ -85,9 +85,9 @@ const FooterSection = () => {
           <div className="lg:col-span-1">
             <div className="rounded-2xl overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=300&fit=crop"
+                src="/Rectangle 22852.png"
                 alt="Business meeting"
-                className="w-full h-64 lg:h-80 object-cover"
+                className="w-full h-60 lg:h-72 object-cover"
               />
             </div>
           </div>
@@ -97,7 +97,7 @@ const FooterSection = () => {
         <div 
           className="pt-8 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center"
         >
-          <div className="text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="text-gray-400 text-sm">
   © {new Date().getFullYear()} Software Chamber. All Rights Reserved
 </div>
           <div className="flex space-x-8">
