@@ -8,14 +8,15 @@ const FooterSection = () => {
       style={{ backgroundColor: '#0f172a' }}
     >
       <div className="max-w-7xl mx-auto">
-        {/* Main Content */}
-        <div className="grid lg:grid-cols-3 gap-16 mb-10">
-          {/* Left Column - Title, Description & Social Media */}
-          <div className="lg:col-span-1">
-            <h2 className="text-5xl font-bold text-white mb-4 leading-tight">
+         <h2 className="text-5xl font-bold text-white mb-16 leading-tight">
               LET'S TALK
             </h2>
-            <p className="text-gray-400 leading-relaxed mb-4">
+        {/* Main Content */}
+        <div className="grid lg:grid-cols-3 gap-16 mb-10">
+          
+          {/* Left Column - Title, Description & Social Media */}
+          <div className="lg:col-span-1">
+            <p className="text-gray-400 leading-relaxed mb-10">
               A new era of energy, elegance, and elite 
               competition begins. Where passion 
               meets performance on the court like 
@@ -24,7 +25,7 @@ const FooterSection = () => {
 
             {/* Social Media */}
             <div>
-              <h3 className="text-white font-semibold mb-4">Social media</h3>
+              <h3 className="text-white font-semibold mb-6">Social media</h3>
               <div className="grid grid-cols-3 gap-y-3 gap-x-8">
                 <div className="flex items-center text-gray-400 hover:text-cyan-400 transition-colors cursor-pointer">
                   <span>Instagram</span>
