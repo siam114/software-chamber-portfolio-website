@@ -1,13 +1,12 @@
-// components/WhyChooseSection.tsx
 import { useState, useEffect, useRef } from 'react';
-import { Clock, Shield, Users, Zap, Award, HeartHandshake } from 'lucide-react';
+import { Clock, Shield, Users, Zap, Award, HeartHandshake, ArrowLeft, ArrowRight } from 'lucide-react';
 
 interface FeatureCard {
   id: number;
   title: string;
   description: string;
   icon: React.ReactNode;
-  stats: string;
+  color: string;
 }
 
 const useInView = (threshold = 0.4) => {
@@ -36,175 +35,146 @@ const useInView = (threshold = 0.4) => {
 
 const WhyChooseSection = () => {
   const { ref, inView } = useInView(0.3);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const features: FeatureCard[] = [
     {
       id: 1,
-      title: "Lightning Fast",
-      description: "Optimized performance with cutting-edge technologies for blazing fast applications.",
-      icon: <Zap className="w-8 h-8" />,
-      stats: "99.9% Uptime"
+      title: "Efficiency",
+      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      icon: <Zap className="w-6 h-6" />,
+      color: "bg-green-100 text-green-600"
     },
     {
       id: 2,
-      title: "Secure & Reliable",
-      description: "Enterprise-grade security measures to protect your data and ensure system reliability.",
-      icon: <Shield className="w-8 h-8" />,
-      stats: "256-bit Encryption"
+      title: "Adaptability",
+      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      icon: <Shield className="w-6 h-6" />,
+      color: "bg-teal-100 text-teal-600"
     },
     {
       id: 3,
-      title: "24/7 Support",
-      description: "Round-the-clock technical support and maintenance to keep your systems running smoothly.",
-      icon: <Clock className="w-8 h-8" />,
-      stats: "< 1hr Response"
+      title: "Scalability",
+      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      icon: <Users className="w-6 h-6" />,
+      color: "bg-cyan-100 text-cyan-600"
     },
     {
       id: 4,
-      title: "Expert Team",
-      description: "Seasoned professionals with years of experience in modern web technologies.",
-      icon: <Users className="w-8 h-8" />,
-      stats: "50+ Developers"
-    },
-    {
-      id: 5,
-      title: "Award Winning",
-      description: "Recognized for excellence in software development and innovative solutions.",
-      icon: <Award className="w-8 h-8" />,
-      stats: "15+ Awards"
-    },
-    {
-      id: 6,
-      title: "Client Focused",
-      description: "Dedicated to building long-term partnerships and exceeding client expectations.",
-      icon: <HeartHandshake className="w-8 h-8" />,
-      stats: "98% Satisfaction"
+      title: "Precision",
+      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      icon: <Award className="w-6 h-6" />,
+      color: "bg-blue-100 text-blue-600"
     }
   ];
 
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % features.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + features.length) % features.length);
+  };
+
   return (
-    <section ref={ref} className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-20 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <h2 className="text-4xl font-bold mb-4 text-white">
+          <h2 className="text-5xl font-bold mb-6 text-gray-900">
             Why Choose{' '}
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              SoftwareChamber
+            <span className="block mt-2">
+              Softwarechamber
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            We combine technical expertise with innovative solutions to deliver exceptional results
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+            Deliver personalised experiences to your customers with AI-powered 
+            recommendation engines and dynamic content generation.
           </p>
+          
+          {/* CTA Button */}
+          <button className="inline-flex items-center px-8 py-3 bg-teal-500 text-white rounded-full font-semibold hover:bg-teal-600 transition-colors duration-300">
+            Let's Discover
+            <ArrowRight className="ml-2 w-5 h-5" />
+          </button>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <div
-              key={feature.id}
-              className={`group relative p-8 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700/50 rounded-2xl backdrop-blur-sm cursor-pointer transition-all duration-300 ${
-                hoveredCard === feature.id 
-                  ? 'translate-y-[-6px] shadow-2xl shadow-cyan-500/10 ring-1 ring-cyan-500/20' 
-                  : ''
-              } ${
-                inView ? 'opacity-100 translate-y-0 rotate-0' : 'opacity-0 translate-y-6 rotate-1'
-              }`}
-              style={{ 
-                transitionDelay: `${index * 100}ms`,
-              }}
-              onMouseEnter={() => setHoveredCard(feature.id)}
-              onMouseLeave={() => setHoveredCard(null)}
-            >
-              {/* Glow Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r from-cyan-500/5 to-blue-500/5 rounded-2xl transition-opacity duration-300 ${
-                hoveredCard === feature.id ? 'opacity-100' : 'opacity-0'
-              }`} />
-              
-              {/* Icon with Tilt Animation */}
-              <div className={`relative mb-6 text-cyan-400 transition-all duration-300 ${
-                hoveredCard === feature.id ? 'transform rotate-8 scale-110' : ''
-              }`}>
-                {feature.icon}
-              </div>
-
-              {/* Stats Badge */}
-              <div className="absolute top-6 right-6">
-                <div className="px-3 py-1 bg-cyan-500/10 border border-cyan-500/20 rounded-full text-cyan-400 text-sm font-medium">
-                  {feature.stats}
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="relative">
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-cyan-400 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-
-              {/* Hover Indicator */}
-              <div className={`absolute bottom-6 left-8 right-8 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 ${
-                hoveredCard === feature.id ? 'opacity-100 scale-x-100' : 'opacity-0 scale-x-0'
-              }`} />
-
-              {/* Sparkle Effects */}
-              {hoveredCard === feature.id && (
-                <div className="absolute inset-0 pointer-events-none">
-                  {[...Array(3)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-cyan-400 rounded-full animate-ping"
-                      style={{
-                        left: `${20 + i * 30}%`,
-                        top: `${20 + i * 20}%`,
-                        animationDelay: `${i * 200}ms`,
-                        animationDuration: '1s'
-                      }}
-                    />
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom Stats */}
-        <div className={`mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center transition-all duration-600 ease-out delay-600 ${
+        {/* Features Carousel */}
+        <div className={`relative transition-all duration-600 ease-out delay-300 ${
           inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
         }`}>
-          <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-cyan-400 mb-2">500+</div>
-            <div className="text-gray-400">Projects Delivered</div>
+          <div className="flex items-center justify-center space-x-8">
+            {/* Previous Button */}
+            <button 
+              onClick={prevSlide}
+              className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300 shadow-lg"
+            >
+              <ArrowLeft className="w-6 h-6 text-gray-600" />
+            </button>
+
+            {/* Feature Cards Container */}
+            <div className="flex space-x-6 overflow-hidden">
+              {[-1, 0, 1].map((offset) => {
+                const index = (currentIndex + offset + features.length) % features.length;
+                const feature = features[index];
+                const isCenter = offset === 0;
+                
+                return (
+                  <div
+                    key={feature.id}
+                    className={`flex-shrink-0 transition-all duration-500 ease-in-out ${
+                      isCenter 
+                        ? 'transform scale-110 z-10 opacity-100' 
+                        : 'transform scale-90 opacity-60'
+                    }`}
+                    style={{ width: '320px' }}
+                  >
+                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                      {/* Icon */}
+                      <div className={`inline-flex p-4 rounded-2xl mb-6 ${feature.color}`}>
+                        {feature.icon}
+                      </div>
+
+                      {/* Content */}
+                      <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                        {feature.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed text-base">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Next Button */}
+            <button 
+              onClick={nextSlide}
+              className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300 shadow-lg"
+            >
+              <ArrowRight className="w-6 h-6 text-gray-600" />
+            </button>
           </div>
-          <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-blue-400 mb-2">98%</div>
-            <div className="text-gray-400">Client Satisfaction</div>
-          </div>
-          <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-purple-400 mb-2">24/7</div>
-            <div className="text-gray-400">Support Available</div>
-          </div>
-          <div className="p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-green-400 mb-2">5+</div>
-            <div className="text-gray-400">Years Experience</div>
+
+          {/* Dots Indicator */}
+          <div className="flex justify-center mt-12 space-x-3">
+            {features.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'bg-teal-500 scale-125' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes sparkle {
-          0%, 100% { opacity: 0; transform: scale(0); }
-          50% { opacity: 1; transform: scale(1); }
-        }
-        
-        .animate-sparkle {
-          animation: sparkle 1.5s infinite;
-        }
-        
         @media (prefers-reduced-motion: reduce) {
           *, *::before, *::after {
             animation-duration: 0.01ms !important;
