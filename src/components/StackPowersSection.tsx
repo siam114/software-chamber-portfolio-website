@@ -61,7 +61,7 @@ const StackPowersSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className={`text-center mb-16 transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-          <h2 className="text-4xl font-bold mb-4 text-white">
+          <h2 className="text-5xl font-bold mb-4 text-white">
             Our Stack Powers of{' '}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               the World's Most Beloved Companies
