@@ -3,12 +3,12 @@ import React from 'react';
 const TestimonialSection = () => {
   return (
     <div 
-      className="min-h-screen flex items-center justify-center px-4 py-16"
+      className="min-h-screen flex items-center justify-center px-4 py-14"
       style={{ backgroundColor: '#0f172a' }}
     >
       <div className="max-w-4xl mx-auto text-center">
         {/* Header Badge */}
-        <div className="mb-12">
+        <div className="mb-2">
           <div 
             className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium text-white mb-8"
             style={{ backgroundColor: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.3)' }}
@@ -22,14 +22,14 @@ const TestimonialSection = () => {
         </div>
 
         {/* Main Heading */}
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-16 leading-tight">
+        <h1 className="text-3xl md:text-5xl font-bold text-white mb-16 leading-tight">
           Don't just take our word for it. Hear<br />
           what <span className="text-gray-400">our clients say</span>
         </h1>
 
         {/* Testimonial Card */}
         <div 
-          className="max-w-3xl mx-auto p-8 rounded-2xl relative"
+          className="max-w-8xl mx-auto p-8 rounded-2xl relative"
           style={{ 
             backgroundColor: 'rgba(30, 41, 59, 0.5)',
             border: '1px solid rgba(51, 65, 85, 0.3)',
