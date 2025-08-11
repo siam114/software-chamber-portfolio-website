@@ -149,33 +149,6 @@ const StackPowersSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Bottom Statistics */}
-        <div className={`mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-600 ease-out delay-400 ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}>
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-cyan-400 mb-2">50+</div>
-            <div className="text-gray-400">Technologies Mastered</div>
-          </div>
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-blue-400 mb-2">1000+</div>
-            <div className="text-gray-400">Projects Powered</div>
-          </div>
-          <div className="text-center p-6 bg-gray-800/30 rounded-xl border border-gray-700/50">
-            <div className="text-3xl font-bold text-purple-400 mb-2">24/7</div>
-            <div className="text-gray-400">Innovation Drive</div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className={`text-center mt-12 transition-all duration-600 ease-out delay-600 ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}>
-          <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 rounded-lg font-semibold text-white transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-cyan-500/25">
-            Explore Our Technology Stack
-          </button>
-        </div>
       </div>
 
       {/* Custom Styles */}
