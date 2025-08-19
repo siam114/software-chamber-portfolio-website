@@ -1,5 +1,14 @@
-import { useState, useEffect, useRef } from 'react';
-import { Clock, Shield, Users, Zap, Award, HeartHandshake, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import {
+  Clock,
+  Shield,
+  Users,
+  Zap,
+  Award,
+  HeartHandshake,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
 
 interface FeatureCard {
   id: number;
@@ -41,31 +50,35 @@ const WhyChooseSection = () => {
     {
       id: 1,
       title: "Efficiency",
-      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      description:
+        "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
       icon: <Zap className="w-6 h-6" />,
-      color: "bg-green-100 text-green-600"
+      color: "bg-green-100 text-green-600",
     },
     {
       id: 2,
       title: "Adaptability",
-      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      description:
+        "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
       icon: <Shield className="w-6 h-6" />,
-      color: "bg-teal-100 text-teal-600"
+      color: "bg-teal-100 text-teal-600",
     },
     {
       id: 3,
       title: "Scalability",
-      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      description:
+        "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
       icon: <Users className="w-6 h-6" />,
-      color: "bg-cyan-100 text-cyan-600"
+      color: "bg-cyan-100 text-cyan-600",
     },
     {
       id: 4,
       title: "Precision",
-      description: "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
+      description:
+        "Software Chamber specialises in creating powerful, scalable, and secure e-commerce solutions tailored to business needs.",
       icon: <Award className="w-6 h-6" />,
-      color: "bg-blue-100 text-blue-600"
-    }
+      color: "bg-blue-100 text-blue-600",
+    },
   ];
 
   const nextSlide = () => {
@@ -80,18 +93,19 @@ const WhyChooseSection = () => {
     <section ref={ref} className="py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-600 ease-out ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+        <div
+          className={`text-center mb-16 transition-all duration-600 ease-out ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <h2 className="text-5xl font-bold mb-6 text-gray-900">
-            Why Choose{' '}
-            <span className="block mt-2">
-              Softwarechamber
-            </span>
+            Why Choose <span className="block mt-2">Softwarechamber</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Deliver personalised experiences to your customers with AI-powered 
+            Deliver personalised experiences to your customers with AI-powered
             recommendation engines and dynamic content generation.
           </p>
-          
+
           {/* CTA Button */}
           <button className="inline-flex items-center px-8 py-3 bg-teal-500 text-white rounded-full font-semibold hover:bg-teal-600 transition-colors duration-300">
             Let's Discover
@@ -100,12 +114,14 @@ const WhyChooseSection = () => {
         </div>
 
         {/* Features Carousel */}
-        <div className={`relative transition-all duration-600 ease-out delay-300 ${
-          inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-        }`}>
+        <div
+          className={`relative transition-all duration-600 ease-out delay-300 ${
+            inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+          }`}
+        >
           <div className="flex items-center justify-center space-x-8">
             {/* Previous Button */}
-            <button 
+            <button
               onClick={prevSlide}
               className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300 shadow-lg"
             >
@@ -115,23 +131,26 @@ const WhyChooseSection = () => {
             {/* Feature Cards Container */}
             <div className="flex space-x-6 overflow-hidden">
               {[-1, 0, 1].map((offset) => {
-                const index = (currentIndex + offset + features.length) % features.length;
+                const index =
+                  (currentIndex + offset + features.length) % features.length;
                 const feature = features[index];
                 const isCenter = offset === 0;
-                
+
                 return (
                   <div
                     key={feature.id}
                     className={`flex-shrink-0 transition-all duration-500 ease-in-out ${
-                      isCenter 
-                        ? 'transform scale-110 z-10 opacity-100' 
-                        : 'transform scale-90 opacity-60'
+                      isCenter
+                        ? "transform scale-110 z-10 opacity-100"
+                        : "transform scale-90 opacity-60"
                     }`}
-                    style={{ width: '320px' }}
+                    style={{ width: "320px" }}
                   >
                     <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
                       {/* Icon */}
-                      <div className={`inline-flex p-4 rounded-2xl mb-6 ${feature.color}`}>
+                      <div
+                        className={`inline-flex p-4 rounded-2xl mb-6 ${feature.color}`}
+                      >
                         {feature.icon}
                       </div>
 
@@ -149,7 +168,7 @@ const WhyChooseSection = () => {
             </div>
 
             {/* Next Button */}
-            <button 
+            <button
               onClick={nextSlide}
               className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300 shadow-lg"
             >
@@ -164,9 +183,9 @@ const WhyChooseSection = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'bg-teal-500 scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                  index === currentIndex
+                    ? "bg-teal-500 scale-125"
+                    : "bg-gray-300 hover:bg-gray-400"
                 }`}
               />
             ))}
@@ -176,7 +195,9 @@ const WhyChooseSection = () => {
 
       <style jsx>{`
         @media (prefers-reduced-motion: reduce) {
-          *, *::before, *::after {
+          *,
+          *::before,
+          *::after {
             animation-duration: 0.01ms !important;
             animation-iteration-count: 1 !important;
             transition-duration: 0.01ms !important;
