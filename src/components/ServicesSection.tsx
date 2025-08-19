@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Code, Globe, Database, Shield, Smartphone, Users, ArrowRight, Layers, Zap, Settings } from 'lucide-react';
 
 // Animation hook for intersection observer
